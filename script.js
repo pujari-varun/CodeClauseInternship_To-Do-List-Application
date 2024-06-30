@@ -3,7 +3,7 @@ const listContainer = document.getElementById("list-container");
 
 function addTask(){
     if(inputBox.value === ''){
-        alert("You must write something!");
+        alert("You must write something!"); 
     }
     else{
         let li = document.createElement("li");
@@ -31,7 +31,12 @@ listContainer.addEventListener("click", function(e){
 function saveData(){
     localStorage.setItem("data", listContainer.innerHTML);
 }
+
 function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
+    let data = localStorage.getItem("data");
+    if (data) {
+        listContainer.innerHTML = data;
+    }
 }
+
 showTask();
